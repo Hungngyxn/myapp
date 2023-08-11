@@ -4,7 +4,11 @@ import 'package:flutter/services.dart';
 void main() {
   runApp(const LoginFormApp());
 }
+<<<<<<< HEAD
 
+=======
+String text='';
+>>>>>>> 31174bb (Initial commit)
 class LoginFormApp extends StatelessWidget {
   const LoginFormApp({super.key});
 
@@ -12,8 +16,13 @@ class LoginFormApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Login Form App',
+<<<<<<< HEAD
       home: HomePage(),
 
+=======
+      home: LoginPage(),
+      debugShowCheckedModeBanner: false,
+>>>>>>> 31174bb (Initial commit)
     );
   }
 }
@@ -67,7 +76,11 @@ class _LoginPageState extends State<LoginPage> {
               child: DropdownButton<String>(
                 value: _selectedRole,
                 onChanged: _handleDropdownChange,
+<<<<<<< HEAD
                 items: <String>['FPTSite3', 'FPTSite4','site5']
+=======
+                items: <String>['FPTSite3', 'FPTSite4','FPTSite5']
+>>>>>>> 31174bb (Initial commit)
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -79,8 +92,13 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.only(top: 150),
               child: TextField(
+<<<<<<< HEAD
               controller: _usernameController,
               decoration: const InputDecoration(
+=======
+                controller: _usernameController,
+                decoration: const InputDecoration(
+>>>>>>> 31174bb (Initial commit)
                 labelText: 'Username',
                 prefixIcon: Icon(Icons.person),
               ),
@@ -88,8 +106,13 @@ class _LoginPageState extends State<LoginPage> {
             ),
             const SizedBox(height: 16.0),
             TextField(
+<<<<<<< HEAD
               controller: _passwordController,
               decoration: const InputDecoration(
+=======
+                controller: _passwordController,
+                decoration: const InputDecoration(
+>>>>>>> 31174bb (Initial commit)
                 labelText: 'Password',
                 prefixIcon: Icon(Icons.password),
               ),
@@ -113,6 +136,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+<<<<<<< HEAD
+=======
+        debugShowCheckedModeBanner: false,
+>>>>>>> 31174bb (Initial commit)
       home: Scaffold(
         appBar: AppBar(
           title: const Text("abc"),
@@ -141,6 +168,7 @@ class HomePage extends StatelessWidget {
         drawer: Drawer(
           child: ListView(
             children: [
+<<<<<<< HEAD
               const DrawerHeader(
                  child: UserAccountsDrawerHeader(
                    decoration: BoxDecoration(
@@ -156,6 +184,63 @@ class HomePage extends StatelessWidget {
               const ListTile(
                   leading: Icon(Icons.format_list_bulleted_outlined),
                   title: Text('Danh mục ICD thường dùng')),
+=======
+               Column(
+                children: [
+                  const Text(
+                    'Nguyễn Thị Hải Yến',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  const Text(
+                    'Admin - Ban Giám Đốc',
+                    style: TextStyle(fontSize: 10),),
+                  TextButton(
+                    onPressed: () {
+                      showDataAlert(context);
+                    },
+                    child:  Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(text), // <-- Text
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        const Icon( // <-- Icon
+                          Icons.arrow_drop_down,
+                          size: 24.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Text('data')
+                ],
+                ),
+              ListTile(
+                leading: const Icon(Icons.notifications),
+                title: const Text('Thông báo'),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),);
+                },),
+              ListTile(
+                  leading: const Icon(Icons.format_list_bulleted_outlined),
+                  title: const Text('Danh mục ICD thường dùng'),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),);
+                },),
+               ListTile(
+                  leading: const Icon(Icons.person_outline),
+                  title: const Text('Danh mục người dùng'),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomePage()),);
+                },),
+
+>>>>>>> 31174bb (Initial commit)
               ListTile(
                   leading: const Icon(Icons.logout),
                   title: const Text('Đăng xuất'),
@@ -255,6 +340,7 @@ class SearchPage extends SearchDelegate {
   }
 }
 
+<<<<<<< HEAD
 // Route _createRoute() {
 //   return PageRouteBuilder(
 //     pageBuilder: (context, animation, secondaryAnimation) => const SearchPage(),
@@ -272,6 +358,8 @@ class SearchPage extends SearchDelegate {
 //     },
 //   );
 // }
+=======
+>>>>>>> 31174bb (Initial commit)
 Widget tab=const DefaultTabController(
     length: 5,
   child: Scaffold(
@@ -302,6 +390,94 @@ Widget tab=const DefaultTabController(
       ],
     ),
   ),);
+<<<<<<< HEAD
+=======
+showDataAlert(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                20.0,
+              ),
+            ),
+          ),
+          content: RadioListTileExample(),
+          contentPadding: EdgeInsets.only(
+            top: 10.0,
+          ),
+        );
+      });
+}
+
+enum Groceries { pickles, tomato, lettuce }
+
+class RadioListTileExample extends StatefulWidget {
+  const RadioListTileExample({super.key});
+
+  @override
+  State<RadioListTileExample> createState() => _RadioListTileExampleState();
+}
+
+class _RadioListTileExampleState extends State<RadioListTileExample> {
+  Groceries? _groceryItem;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('')),
+      body: Column(
+        children: <Widget>[
+          RadioListTile<Groceries>(
+            value: Groceries.pickles,
+            groupValue: _groceryItem,
+            onChanged: (Groceries? value) {
+              setState(() {
+                _groceryItem = value;
+                //Navigator.pop(context, false);
+              });
+            },
+            title: const Text('Pickles'),
+          ),
+          RadioListTile<Groceries>(
+            value: Groceries.tomato,
+            groupValue: _groceryItem,
+            onChanged: (Groceries? value) {
+              setState(() {
+                _groceryItem = value;
+               // Navigator.pop(context, false);
+              });
+            },
+            title: const Text('Tomato'),),
+          RadioListTile<Groceries>(
+            value: Groceries.lettuce,
+            groupValue: _groceryItem,
+            onChanged: (Groceries? value) {
+              setState(() {
+                _groceryItem = value;
+                //Navigator.pop(context, false);
+              });
+            },
+            title: const Text('Lettuce'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              text=_groceryItem.toString();
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const HomePage()));
+
+            }, child: const Text('Đóng'),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
+>>>>>>> 31174bb (Initial commit)
 
 
 
